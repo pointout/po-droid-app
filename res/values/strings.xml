@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pointout</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="default_label">Can you point out a good</string>
+	<string name="default_text">Saloon</string>
+	<string name="tab1_label">Ask</string>
+	<string name="tab2_label">Check</string>
+</resources>

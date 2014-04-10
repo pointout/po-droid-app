@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/action_check"
+          android:title="@string/tab2_label"
+          android:showAsAction="ifRoom"
+           />
+    <item android:id="@+id/action_ask"
+          android:title="@string/tab1_label"
+          android:showAsAction="ifRoom" />
+    
+
+</menu>

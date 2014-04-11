@@ -8,4 +8,8 @@
 	<string name="default_text">Saloon</string>
 	<string name="tab1_label">Ask</string>
 	<string name="tab2_label">Check</string>
+	<string name="near_label">Near</string>
+	<string name="addphone">Add Phone numbers</string>
+	<string name="addemail">Add E-mails</string>
+	<string name="ask_button">Ask</string>
 </resources>

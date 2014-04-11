@@ -2,6 +2,7 @@ package to.pointout;
 
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TabHost;
 import android.os.Build;
 
@@ -29,11 +32,11 @@ public class MainActivity extends Activity {
     }
 
 
-    @Override
+
+	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_main_actions, menu);
         
@@ -48,10 +51,10 @@ public class MainActivity extends Activity {
     	// Take appropriate action for each action item click
         switch (item.getItemId()) {
         case R.id.action_ask:
-            // ask action
+        	askAction();
             return true;
         case R.id.action_check:
-            checkAction();
+            //checkAction();
             return true;
         
         default:
@@ -61,7 +64,7 @@ public class MainActivity extends Activity {
         
     }
 
-    private void checkAction() {
+    private void askAction() {
     	Intent i = new Intent(MainActivity.this, CheckAcitivity.class);
         startActivity(i);
 		

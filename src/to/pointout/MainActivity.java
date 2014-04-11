@@ -19,6 +19,7 @@ import android.os.Build;
 
 public class MainActivity extends Activity {
 
+	public static final String  httpUrl = "http://www.pointout.to/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,8 +1,22 @@
 package to.pointout;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import com.google.gson.GsonBuilder;
+
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +24,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class CheckAcitivity extends Activity{
+
+	public static final String CHECK_ACTIVITY = "Check Activity ";
 
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +52,17 @@ public class CheckAcitivity extends Activity{
     	EditText askFor =  (EditText)findViewById(R.id.askingFor);
     	EditText phones =  (EditText)findViewById(R.id.phoneNumbers);
     	EditText emails =  (EditText)findViewById(R.id.emails);
+    	EditText location =  (EditText)findViewById(R.id.nearField);
     	
-    	String textForDebug = askFor.getText() + " || " + phones.getText() + " || " + emails.getText();
-    	Log.d("Check Activity ", textForDebug);
-		
+    	Map<String, Object> content = new HashMap<String, Object>();
+    	content.put("device", "TEST-DEVICE");
+    	content.put("subject", askFor.getText().toString());
+    	content.put("location", location.getText().toString());
+    	String[] emailsArray = emails.getText().toString().split("[;,]");
+    	content.put("recipients", emailsArray);
+    	
+    	HttpAsyncTask asyncTask = new HttpAsyncTask(content);
+    	asyncTask.execute(MainActivity.httpUrl+"/request/create");
+    	
 	}
 }

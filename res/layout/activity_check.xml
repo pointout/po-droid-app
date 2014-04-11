@@ -21,7 +21,7 @@
 	        android:layout_width="154dp"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:text="@string/default_text" >
+	        android:text="@string/default_askingFor" >
 	        <requestFocus />
 	    </AutoCompleteTextView>
 
@@ -37,7 +37,7 @@
 	        android:layout_width="127dp"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
-	        android:text="@string/default_text" >
+	        android:text="@string/default_nearField" >
 
 	        <requestFocus />
 	    </AutoCompleteTextView>

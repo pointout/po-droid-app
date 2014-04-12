@@ -17,11 +17,11 @@ import com.google.gson.GsonBuilder;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class HttpAsyncTask extends AsyncTask<String, Void, Void>{
+public class HttpAsk extends AsyncTask<String, Void, Void>{
 
 	private Map<String, Object> payload;
 
-	public HttpAsyncTask(Map<String, Object> payload)
+	public HttpAsk(Map<String, Object> payload)
 	{
 		this.payload = payload;
 	}
@@ -29,7 +29,7 @@ public class HttpAsyncTask extends AsyncTask<String, Void, Void>{
 	@Override
 	protected Void doInBackground(String... urls) {
 		String json = new GsonBuilder().create().toJson(payload, Map.class);
-    	Log.d(CheckAcitivity.CHECK_ACTIVITY, json);
+    	Log.d(AskAcitivity.ASK_ACTIVITY, json);
     	HttpClient client = new DefaultHttpClient();
     	HttpPost post = new HttpPost(urls[0]);
     	
@@ -38,13 +38,14 @@ public class HttpAsyncTask extends AsyncTask<String, Void, Void>{
     	try {
 			post.setEntity(new StringEntity(json));
 			HttpResponse response = client.execute(post);
-			Log.i(CheckAcitivity.CHECK_ACTIVITY, response.getStatusLine().toString());
+			Log.i(AskAcitivity.ASK_ACTIVITY, response.getStatusLine().toString());
+			
 		} catch (UnsupportedEncodingException e) {
-			Log.e(CheckAcitivity.CHECK_ACTIVITY, "error in posting", e);
+			Log.e(AskAcitivity.ASK_ACTIVITY, "error in posting", e);
 		} catch (ClientProtocolException e) {
-			Log.e(CheckAcitivity.CHECK_ACTIVITY, "error in posting", e);
+			Log.e(AskAcitivity.ASK_ACTIVITY, "error in posting", e);
 		} catch (IOException e) {
-			Log.e(CheckAcitivity.CHECK_ACTIVITY, "error in posting", e);
+			Log.e(AskAcitivity.ASK_ACTIVITY, "error in posting", e);
 		}
 		return null;
 	}

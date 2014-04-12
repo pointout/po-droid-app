@@ -20,6 +20,8 @@ import android.os.Build;
 public class MainActivity extends Activity {
 
 	public static final String  httpUrl = "http://www.pointout.to/";
+	public static final String DEVICE_ID = "TEST-DEVICE";
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class MainActivity extends Activity {
         	askAction();
             return true;
         case R.id.action_check:
-            //checkAction();
+            checkAction();
             return true;
         
         default:
@@ -66,11 +68,14 @@ public class MainActivity extends Activity {
     }
 
     private void askAction() {
-    	Intent i = new Intent(MainActivity.this, CheckAcitivity.class);
+    	Intent i = new Intent(MainActivity.this, AskAcitivity.class);
         startActivity(i);
-		
 	}
 
+    private void checkAction() {
+    	Intent i = new Intent(MainActivity.this, CheckAcitivity.class);
+        startActivity(i);
+	}
 
 
 	/**

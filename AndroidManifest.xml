@@ -28,10 +28,15 @@
         
         <activity
             android:name="to.pointout.CheckAcitivity"
-            android:label="@string/tab1_label"
+            android:label="@string/tab2_label"
             android:parentActivityName="to.pointout.MainActivity" >
         </activity>
         
+        <activity
+            android:name="to.pointout.AskAcitivity"
+            android:label="@string/tab1_label"
+            android:parentActivityName="to.pointout.MainActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="default_label">Can you point out a good</string>
+    <string name="default_check_label">Your Responses Bag</string>
 	<string name="default_askingFor">Saloon</string>
 	<string name="default_nearField">Hyderabad</string>
 	<string name="tab1_label">Ask</string>

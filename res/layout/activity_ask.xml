@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="258dp"
+        android:layout_height="wrap_content"
+        android:text="@string/default_label"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+	    <AutoCompleteTextView
+	        android:id="@+id/askingFor"
+	        android:layout_width="154dp"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:text="@string/default_askingFor" >
+	        <requestFocus />
+	    </AutoCompleteTextView>
+
+	    <TextView
+	        android:id="@+id/nearLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/near_label"
+	        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	    <AutoCompleteTextView
+	        android:id="@+id/nearField"
+	        android:layout_width="127dp"
+	        android:layout_height="wrap_content"
+	        android:ems="10"
+	        android:text="@string/default_nearField" >
+
+	        <requestFocus />
+	    </AutoCompleteTextView>
+	</LinearLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addphone"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/phoneNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone" />
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addemail"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/emails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/askButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ask_button" />
+    
+</LinearLayout>

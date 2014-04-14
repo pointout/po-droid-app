@@ -17,6 +17,10 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import to.pointout.model.DetailInfo;
+import to.pointout.model.HeaderInfo;
+import to.pointout.model.Response;
+
 import com.google.gson.GsonBuilder;
 
 import android.app.ActionBar;
@@ -114,18 +118,74 @@ public class CheckAcitivity extends Activity{
 			
 			protected void onPostExecute(Void unused) {
 				uiUpdate.setText("Output");
-				Map<String, Object> responseObj = new GsonBuilder().create().fromJson(responseContent, Map.class);
+				Response responseObj = new GsonBuilder().create().fromJson(responseContent, Response.class);
 				
-				ArrayList<Map<String,String>> requestList = (ArrayList<Map<String,String>>) responseObj.get("response");
+				//ArrayList<Map<String,String>> requestList = (ArrayList<Map<String,String>>) responseObj.get("response");
+				//Log.i(CheckAcitivity.CHECK_ACTIVITY, "request list = "+requestList);
 				
-				ListView listView = (ListView)findViewById(R.id.listOfRequests);
+				/*ListView listView = (ListView)findViewById(R.id.listOfRequests);
 				SimpleAdapter listAdapter = new SimpleAdapter(CheckAcitivity.this, requestList
 						, R.layout.listview_row
-						, new String[] {"subject", "location"}
-						, new int[] {R.id.subjectCol, R.id.locationCol});
+						, new String[] {"subject", "location", "responses.response"}
+						, new int[] {R.id.subjectCol, R.id.locationCol, R.id.response});*/
+				
+				Log.i(CheckAcitivity.CHECK_ACTIVITY, "request list = "+responseObj.getResponse());
+				ExpandableListView listView = (ExpandableListView)findViewById(R.id.listOfRequests);
+				
+				List<Map<String,String>> masterList = getMasterList(responseObj.getResponse());
+				List<List<Map<String,String>>> detailsList = getDetailsList(responseObj.getResponse());
+				
+				SimpleExpandableListAdapter listAdapter = new SimpleExpandableListAdapter(CheckAcitivity.this, masterList
+						, R.layout.listview_row
+						, new String[] {"subject", "location", }
+						, new int[] {R.id.subjectCol, R.id.locationCol}
+						, detailsList
+						, R.layout.child_row
+						, new String[] {"response", "recepientId", }
+						, new int[] {R.id.response, R.id.responseId}
+				
+				);
 				
 				listView.setAdapter(listAdapter);
 		    }
+
+			private List<Map<String, String>> getMasterList(List<HeaderInfo> requestList) {
+				ArrayList<Map<String, String>> returnList = new ArrayList<Map<String,String>>();
+				for (HeaderInfo header : requestList) {
+					HashMap<String, String> map = new HashMap<String, String>();
+					map.put("subject", header.getSubject());
+					map.put("location", header.getLocation());
+					returnList.add(map);
+				}
+				return returnList;
+			}
+
+			private List<List<Map<String,String>>> getDetailsList(List<HeaderInfo> requestList) {
+				
+				List<List<Map<String,String>>> masterList = new ArrayList<List<Map<String,String>>>();
+				
+				for (HeaderInfo header : requestList) {
+					ArrayList<Map<String, String>> childList = new ArrayList<Map<String,String>>();
+					if(header.getResponses().size() > 0)
+					{
+						for(DetailInfo detail : header.getResponses())
+						{
+							HashMap<String, String> map = new HashMap<String, String>();
+							map.put("response", detail.getResponse());
+							map.put("recepientId", detail.getRecipientId());
+							childList.add(map);
+						}
+					}else{
+						HashMap<String, String> map = new HashMap<String, String>();
+						map.put("response", "no response yet..");
+						childList.add(map);
+					}
+					
+					masterList.add(childList);
+				}
+				
+				return masterList;
+			}
 
 			
 		}

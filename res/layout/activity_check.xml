@@ -11,10 +11,10 @@
         android:text="@string/default_check_label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <ListView
+    <ExpandableListView
         android:id="@+id/listOfRequests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </ListView>
+    </ExpandableListView>
    
 </LinearLayout>

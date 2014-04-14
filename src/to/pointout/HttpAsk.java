@@ -41,10 +41,13 @@ public class HttpAsk extends AsyncTask<String, Void, Void>{
 			Log.i(AskAcitivity.ASK_ACTIVITY, response.getStatusLine().toString());
 			
 		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 			Log.e(AskAcitivity.ASK_ACTIVITY, "error in posting", e);
 		} catch (ClientProtocolException e) {
+			e.printStackTrace();
 			Log.e(AskAcitivity.ASK_ACTIVITY, "error in posting", e);
 		} catch (IOException e) {
+			e.printStackTrace();
 			Log.e(AskAcitivity.ASK_ACTIVITY, "error in posting", e);
 		}
 		return null;

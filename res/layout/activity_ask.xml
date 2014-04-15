@@ -24,6 +24,8 @@
 	        android:text="@string/default_askingFor" >
 	        <requestFocus />
 	    </AutoCompleteTextView>
+	</LinearLayout>
+	
 
 	    <TextView
 	        android:id="@+id/nearLabel"
@@ -32,16 +34,17 @@
 	        android:text="@string/near_label"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 
+
 	    <AutoCompleteTextView
 	        android:id="@+id/nearField"
-	        android:layout_width="127dp"
+	        android:layout_width="258dp"
 	        android:layout_height="wrap_content"
 	        android:ems="10"
 	        android:text="@string/default_nearField" >
 
 	        <requestFocus />
 	    </AutoCompleteTextView>
-	</LinearLayout>
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="258dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -16,67 +16,54 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-	    <AutoCompleteTextView
-	        android:id="@+id/askingFor"
-	        android:layout_width="154dp"
-	        android:layout_height="wrap_content"
-	        android:ems="10"
-	        android:text="@string/default_askingFor" >
-	        <requestFocus />
-	    </AutoCompleteTextView>
-	</LinearLayout>
-	
+        <AutoCompleteTextView
+            android:id="@+id/askingFor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@string/default_askingFor" >
 
-	    <TextView
-	        android:id="@+id/nearLabel"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/near_label"
-	        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-
-	    <AutoCompleteTextView
-	        android:id="@+id/nearField"
-	        android:layout_width="258dp"
-	        android:layout_height="wrap_content"
-	        android:ems="10"
-	        android:text="@string/default_nearField" >
-
-	        <requestFocus />
-	    </AutoCompleteTextView>
+            <requestFocus />
+        </AutoCompleteTextView>
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/nearLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addphone"
+        android:text="@string/near_label"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
-        android:id="@+id/phoneNumbers"
-        android:layout_width="match_parent"
+    <AutoCompleteTextView
+        android:id="@+id/nearField"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="phone" />
-    
+        android:text="@string/default_nearField" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/contactLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addemail"
+        android:text="@string/contact_label"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
-        android:id="@+id/emails"
-        android:layout_width="match_parent"
+    <MultiAutoCompleteTextView
+        android:id="@+id/emailContacts"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:textStyle="bold"
+        android:width="250dip" />
 
     <Button
         android:id="@+id/askButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ask_button" />
-    
+
 </LinearLayout>
